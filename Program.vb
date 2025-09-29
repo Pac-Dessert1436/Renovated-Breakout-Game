@@ -91,7 +91,8 @@ Public NotInheritable Class Program
     Protected Overrides Function OnUserUpdate(elapsedTime As Single) As Boolean
         HandleInput(elapsedTime)
         Clear(Presets.Black)
-        m_ballMoveInterval = Max(0.001F, 0.015F - (m_level - 1) * 0.002F)
+        m_ballMoveInterval = Max(0.005F, 0.015F - (m_level - 1) * 0.002F)
+        m_paddle.MoveSpeed = Min(1.5F + (m_level - 1) * 0.25F, 3.5F)
 
         Static gameOverTimer As Single = 0, mainThemeIntroTimer As Single = 0
         Const GAME_OVER_DURATION As Integer = 5
@@ -126,8 +127,8 @@ Public NotInheritable Class Program
                 DrawString(50, 150, "PRESS ""P"" AGAIN TO CONTINUE", TextColor)
             Case GameState.GameOver
                 m_prevGameData = (m_score, m_lives, m_level)
-                If m_level >= 9 Then
-                    DrawString(100, 120, "GAME COMPLETED!", TextColor)
+                If m_level >= 9 AndAlso IsLevelCompleted() Then
+                    DrawString(95, 120, "GAME COMPLETED!", TextColor)
                     DrawString(80, 150, "THANKS FOR FLAYING", TextColor)
                 Else
                     DrawString(120, 120, "GAME OVER", TextColor)
@@ -178,11 +179,11 @@ Public NotInheritable Class Program
             Case GameState.Playing
                 If GetKey(Key.P).Pressed Then m_gameState = GameState.Paused
                 If GetKey(Key.LEFT).Held AndAlso m_paddleInputTimer > inputInterval Then
-                    m_paddle.Rect.X -= Paddle.MOVE_SPEED
+                    m_paddle.Rect.X -= m_paddle.MoveSpeed
                     m_paddleInputTimer = 0.0F
                 End If
                 If GetKey(Key.RIGHT).Held AndAlso m_paddleInputTimer > inputInterval Then
-                    m_paddle.Rect.X += Paddle.MOVE_SPEED
+                    m_paddle.Rect.X += m_paddle.MoveSpeed
                     m_paddleInputTimer = 0.0F
                 End If
                 m_paddle.ClampToField(m_fieldLeft, m_fieldRight)
@@ -420,9 +421,9 @@ Public NotInheritable Class Program
 
         Dim targetX = m_ball.Rect.X + (m_ball.Rect.Width / 2) - (m_paddle.Rect.Width / 2)
         If m_paddle.Rect.X < targetX - 2 Then
-            m_paddle.Rect.X += Paddle.MOVE_SPEED
+            m_paddle.Rect.X += m_paddle.MoveSpeed
         ElseIf m_paddle.Rect.X > targetX + 2 Then
-            m_paddle.Rect.X -= Paddle.MOVE_SPEED
+            m_paddle.Rect.X -= m_paddle.MoveSpeed
         End If
         m_paddle.ClampToField(m_fieldLeft, m_fieldRight)
     End Sub

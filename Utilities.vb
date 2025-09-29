@@ -44,7 +44,8 @@ End Class
 
 Friend Class Paddle
     Inherits Block
-    Public Const MOVE_SPEED As Single = 1.5F
+
+    Public Property MoveSpeed As Single
 
     Public Sub New(pixel As Pixel, width As Integer, height As Integer)
         MyBase.New(pixel, width, height)
@@ -57,6 +58,7 @@ End Class
 
 Friend Class Ball
     Inherits Block
+
     Public Property Velocity As Vf2d
     Public Const MOVE_SPEED As Single = 1.2F
 
