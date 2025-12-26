@@ -34,11 +34,11 @@ dotnet build
     | ESC        | Exit the game   |
 
 ## Personal Notes
-With only 80 days left until the Postgraduate Entrance Exam of this year, and China's National Day holiday approaching, I find programming still more engaging than my TCM-related study materials. Yet I recognize that neglecting my studies to focus solely on programming isn't responsible at this stage. Currently, my study efficiency hinges entirely on motivation.
+This Breakout game was developed when only 80 days remained until this year's Postgraduate Entrance Exam, as a fun project to pass the time. Right around China's National Day holiday back then, I still found programming far more engaging than poring over my TCM study materials.
 
-The Zengcheng Library is closed on Mondays, so I'm at home for now. Even when I occupy a fixed seat in the library's study room, maintaining focus is a struggle. Time waits for no one, and adulthood seems to propel us forward regardless of our readiness to pursue life's goals.
+Now that I've finished the exam, I don't feel confident about how I performed on the TCM sections, leaving my future hanging in the balance for the time being.
 
-Contributing projects to GitHub fuels my passion, though I'm uncertain if this enthusiasm will endure once I start working. Still, I'm grateful to have this outlet, certainly better than venting frustration by yelling at a screen while playing online games. Well, after finalizing this project, I'm going to really take a break from GitHub until I complete my exam at the end of 2025!
+That said, contributing projects to GitHub has always been a great source of passion for me. I’m not sure if this enthusiasm will hold steady once I start working full-time, but I’m truly grateful to have this creative outlet, definitely a healthier alternative to venting frustration by raging at a screen while playing online games. For now, all I can do is keep coding as the long-time hobby it is, and wait for the exam results to come out.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

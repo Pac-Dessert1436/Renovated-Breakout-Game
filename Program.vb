@@ -128,8 +128,8 @@ Public NotInheritable Class Program
             Case GameState.GameOver
                 m_prevGameData = (m_score, m_lives, m_level)
                 If m_level >= 9 AndAlso IsLevelCompleted() Then
-                    DrawString(95, 120, "GAME COMPLETED!", TextColor)
-                    DrawString(80, 150, "THANKS FOR FLAYING", TextColor)
+                    DrawString(95, 120, "GAME COMPLETED", TextColor)
+                    DrawString(75, 150, "Thanks for playing!", TextColor)
                 Else
                     DrawString(120, 120, "GAME OVER", TextColor)
                     DrawString(75, 150, "Better luck next time!", TextColor)
